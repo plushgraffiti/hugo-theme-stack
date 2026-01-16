@@ -9,6 +9,8 @@
 <title>{{ $title }}</title>
 
 <link rel='canonical' href='{{ .Permalink }}'>
+<meta name="robots" content="max-image-preview:large" />
+<meta name="author" content="{{ .Site.Params.email }}"/>
 
 {{- partial "head/style.html" . -}}
 {{- partial "head/script.html" . -}}
