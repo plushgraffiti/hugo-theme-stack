@@ -30,6 +30,15 @@
         {{ partial "article/components/links" . }}
     {{ end }}
 
+    {{ $pages := .CurrentSection.Pages.ByWeight }}
+
+    <aside class="related-content--wrapper">
+        <div class="related-content">
+          {{ with $pages.Prev . }}<span style="float: left">← <a href="{{ .RelPermalink }}">{{ .Title }}</a></span>{{ end }}
+          {{ with $pages.Next . }}<span style="float: right"><a href="{{ .RelPermalink }}">{{ .Title }}</a> →</span>{{ end }}
+        </div>
+    </aside>
+
     {{ partial "article/components/related-content" . }}
      
     {{ if not (eq .Params.comments false) }}
