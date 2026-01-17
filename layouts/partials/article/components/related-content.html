@@ -1,3 +1,11 @@
+{{ $pages := .CurrentSection.Pages.ByWeight }}
+<aside class="related-content--wrapper">
+    <div class="related-content">
+        {{ with $pages.Prev . }}<span style="float: left">← <a href="{{ .RelPermalink }}">{{ .Title }}</a></span>{{ end }}
+        {{ with $pages.Next . }}<span style="float: right"><a href="{{ .RelPermalink }}">{{ .Title }}</a> →</span>{{ end }}
+    </div>
+</aside>
+
 {{ $related := (where (.Site.RegularPages.Related .) "Params.hidden" "!=" true) | first 5 }}
 {{ with $related }}
 <aside class="related-content--wrapper">
